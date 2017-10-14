@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     public GameObject knife;
     public float gunCooldown;
     private Rigidbody2D rb2d;
-    private int ammoCount = 6;
+    public int ammoCount = 6;
     // Use this for initialization
     void Start() {
         rb2d = gameObject.GetComponent<Rigidbody2D>();

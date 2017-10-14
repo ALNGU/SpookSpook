@@ -221,6 +221,7 @@
     <Compile Include="Assets\BulletMovement.cs" />
     <Compile Include="Assets\Knife.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\Revolver\RevolverAmmoView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
