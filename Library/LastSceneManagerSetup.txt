@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/HungScene.unity
+- path: Assets/Main Scene - Copy.unity
   isLoaded: 1
   isActive: 1
