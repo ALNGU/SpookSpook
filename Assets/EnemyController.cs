@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour {
     public GameObject enemy;
 	// Use this for initialization
 	void Start () {
-        enemy = GameObject.Find("Enemy");
+        
 	}
 	
 	// Update is called once per frame
@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour {
     private void spawnEnemy(){
         Vector3 newPos = new Vector3(Random.Range(-50, 50), 49, 0);
 
-        GameObject octo = Instantiate(enemy, newPos, Quaternion.identity) as GameObject;
+        GameObject octo = Instantiate(enemy, newPos, Quaternion.identity);
 
     }
 }
