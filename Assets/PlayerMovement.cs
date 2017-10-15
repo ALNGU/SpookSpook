@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour {
     void Update() {
         
         readKeys();
-        setRotation();
+        
         gunCooldown -= Time.deltaTime;
     }
 
@@ -38,21 +38,25 @@ public class PlayerMovement : MonoBehaviour {
         float horizMove = Input.GetAxis("Horizontal") * speed;
         float vertMove = Input.GetAxis("Vertical") * speed;
         //only move in the direction more drastically pressed down
-        if ((Math.Abs(horizMove) > Math.Abs(vertMove))) {
+        if(gunCooldown < .25f) {
+            if ((Math.Abs(horizMove) > Math.Abs(vertMove)))
+            {
 
-            rb2d.velocity = new Vector2(horizMove, 0);
+                rb2d.velocity = new Vector2(horizMove, 0);
 
-            
-        }
-        else
-        {
-            rb2d.velocity = new Vector2(0, vertMove);
 
+            }
+            else
+            {
+                rb2d.velocity = new Vector2(0, vertMove);
+            }
+            setRotation();
         }
         if (Input.GetButtonDown("Fire1") && gunCooldown < 0 && ammoCount > 0)
         {
             GameObject playBullet = Instantiate(bullet, transform.position, Quaternion.identity);
             playBullet.transform.rotation = this.transform.rotation;
+            rb2d.velocity = -transform.right * .4f;
             Debug.Log("Fired!");
             gunCooldown = .75f;
             ammoCount--;
@@ -62,8 +66,24 @@ public class PlayerMovement : MonoBehaviour {
             GameObject playKnife = Instantiate(knife, transform.position + transform.right * .75f - transform.up * .5f, Quaternion.identity, transform);
             playKnife.transform.rotation = this.transform.rotation;
             Debug.Log("Knifed");
-            gunCooldown = 1f;
+            rb2d.velocity = new Vector2(0, 0);
+            gunCooldown = .75f;
         }
     }
 
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Ammo Pickup");
+        if (other.gameObject.tag == "Ammo")
+        {
+            
+            ammoCount += 3;
+            if(ammoCount > 6)
+            {
+                ammoCount = 6;
+            }
+            Destroy(other.gameObject);
+        }
+    }
 }
