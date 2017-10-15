@@ -23,6 +23,7 @@ public class BulletMovement : MonoBehaviour {
         if (other.gameObject.tag == "Enemy")
         {
             Destroy(other.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

@@ -18,4 +18,15 @@ public class Knife : MonoBehaviour {
 
         rb2d.velocity = transform.up * speed;
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log("Enemy Hit");
+        if (other.gameObject.tag == "Enemy")
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+
+        }
+    }
 }
