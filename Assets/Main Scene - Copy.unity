@@ -5001,7 +5001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7561fbdaab5941ee9fc5d81a802efca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCooldown: 4
+  spawnCooldown: 0.2
   enemy: {fileID: 1464792667831622, guid: 5c75842704fd1454ababe9a8ec33eae0, type: 2}
 --- !u!1001 &716453502
 Prefab:
@@ -11892,7 +11892,7 @@ Prefab:
     - target: {fileID: 224097465063124458, guid: 47612d6b06025d34182646228323aec5,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 100
+      value: 205
       objectReference: {fileID: 0}
     - target: {fileID: 224097465063124458, guid: 47612d6b06025d34182646228323aec5,
         type: 2}
